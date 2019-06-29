@@ -1,0 +1,21 @@
+.green{
+    text-align: center;
+    
+    padding: 10px; border: 1px solid green;
+    background:rgba(0, 128, 0, 0.712);
+}
+.blue{
+    text-align: center;
+    padding: 10px; border: 1px solid green;
+    background:rgba(0, 0, 255, 0.644);
+}
+.yellow{
+    text-align: center;
+    padding: 10px; border: 1px solid green;
+    background:rgba(200, 255, 0, 0.466);
+}
+.red{
+    text-align: center;
+    padding: 10px; border: 1px solid green;
+    background:rgba(255, 38, 0, 0.589);
+}

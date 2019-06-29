@@ -1,0 +1,26 @@
+.circle{
+    border-radius: 50%;
+    width:200px;
+    display:flex;
+   margin-top:30px;
+}
+.para{
+    position: relative;
+    left:30px;
+    top:80px;
+}
+.rounded{
+    border-radius:30px;
+    margin-top:30px;
+    width:200px;
+    display:flex;
+}
+.normal{
+    margin-top:30px;
+    width:200px;
+    display:flex;
+}
+.fle{
+    display: flex;
+    justify-content: center
+}

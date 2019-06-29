@@ -1,0 +1,9 @@
+
+.fl{
+    text-align: center;
+    flex-direction: column;
+}
+.fon{
+    font-size: 12px;
+    color:blue;
+}
