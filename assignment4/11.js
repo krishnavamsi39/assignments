@@ -1,4 +1,3 @@
-
 person={
     Firstname:"",
     Lastname:"",
@@ -23,7 +22,6 @@ person={
         }
        console.log("Owned cars list")
        console.log(person.carsOwned)
-    
     },
     addtoWish (l){
         var ind=carnamelist.indexOf(l.model)
