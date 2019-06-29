@@ -26,12 +26,13 @@ person={
     
     },
     addtoWish (l){
-       
-        if(l in person.carsWishlist){
+        var ind=carnamelist.indexOf(l.model)
+        if(ind !=-1){
             console.log("Car already exist")
         }
         else{
         person.carsWishlist.push(l)
+        carnamelist.push(l.model)
         }
         console.log("This is wishlist")
         console.log(person.carsWishlist)
@@ -49,9 +50,10 @@ showRoom={
        console.log(showRoom.cars)
     }
 }
+carnamelist=[]
 person.buyCar(showRoom,"benz")
 person.addtoWish({color:"white",speed:"250",model:"volkeswagen"})
+person.addtoWish({color:"white",speed:"250",model:"volkeswagen"})
 showRoom.addtoShowroom({color:"white",speed:"200",model:"verna"})
-
 
 
