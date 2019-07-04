@@ -1,0 +1,62 @@
+.normal{
+    background-color: green;
+    width:70px;
+    height:70px;
+    display: flex;
+    justify-content:center; 
+    align-items:center;
+    border:solid;
+    color:white;
+    transition: 2s
+    }
+.rotate3d{
+    background-color: green;
+    width:70px;
+    height:70px;
+    display: flex;
+    justify-content:center; 
+align-items:center;
+    border:solid;
+    color:white;
+    transform: rotatey(180deg);
+    transition:3s;
+
+}
+.rotatedown{
+    background-color: green;
+    width:70px;
+    height:70px;
+    display: flex;
+    justify-content:center; 
+align-items:center;
+    border:solid;
+    color:white;
+    transform: rotate(180deg);
+    transition:3s;
+}
+.rotateup{
+    background-color: green;
+    width:70px;
+    height:70px;
+    display: flex;
+    justify-content:center; 
+align-items:center;
+    border:solid;
+    color:white;
+    transform: rotate(-0deg);
+    transition:3s;
+}
+.rotate3dreverse{
+    background-color: green;
+    width:70px;
+    height:70px;
+    display: flex;
+    justify-content:center; 
+align-items:center;
+    border:solid;
+    color:white;
+    transform: rotatey(-0deg);
+    transition:3s;
+}
+
+

@@ -1,0 +1,25 @@
+.division1{
+    height:0px;
+    background-color:blue;
+    display: flex;
+   justify-content: center;
+   align-items: center;
+    transition:0.5s;
+    
+}
+
+.division2{
+    height:200px;
+    background-color:blue;
+    
+    display: flex;
+   justify-content: center;
+   align-items: center;
+   transition:0.7s;
+}
+.para{
+    text-align: center;
+   
+    color:white;
+    font-size:20px;
+}
