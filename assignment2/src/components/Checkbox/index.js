@@ -27,16 +27,24 @@ class Checkbox extends Component{
             {message:'You have visisted these cities '+this.state.cities,}
         )
     }
+    createCities =(cities)=>{
+    
+        var tokens=[]
+        for(let i=0;i<cities.length;i++){
+            tokens[i]=<><input type="checkbox"
+                         value = {cities[i]}               
+                        onChange ={this.handleCheckBox}
+                         /><label>{cities[i]}</label><br></br></>
+        }
+        return tokens 
+    }
 render(){
     return(
         <div class="check">
             <h3>Which Cities have you visited ?</h3>
-                <input type="checkbox"  value="Hyderabad"  onChange={this.handleSelect}/>Hyderabad
-                <input type="checkbox"  value="Bangalore"  onChange={this.handleSelect}/> Bangalore
-                <input type="checkbox"  value="Delhi"  onChange={this.handleSelect}/> Delhi
-                <input type="checkbox"  value="Mumbai" onChange={this.handleSelect}/> Mumbai
-                <input type="submit" value="Submit" onClick={this.handleSubmit} />
-                <h3>{this.state.message}</h3>
+                {this.createCities(this.props.city)}
+                <button onClick={this.handleClick}>SUBMIT</button>
+                <h1>{this.state.msg}</h1>
             </div>
 
     );
