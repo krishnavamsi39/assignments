@@ -1,19 +1,33 @@
-.background{
-   
+.grid{
+  top:100px;
+  position: absolute;
+  display:flex;
+  justify-content:center;
+align-items: center;
+align-content: center;
+left: 40%;
+
 }
+.highlight{
+  background-color:black;
+  border:solid 1px;
+  color:white;
+  
+  height:50px;
+  width: 50px;
+  transition:1s
+
+}
+
 .level{
     position: relative;
     top:30px;
-    right:100px;
-    color: white;
-
+    right:150px;
 }
 .theme{
     position:relative;
     top:30px;
     right:10px;
-    color: white;
-
 }
 .para{
     position:absolute;
@@ -22,12 +36,17 @@
 }
 .normal{
     height:950px;
-    background-color:darkblue
+    background-color:darkblue;
+    color:white
 }
 .night{
     height:950px;
-    background-color:white
+    background-color:white;
+    color:black
 }
+
+
+ /* Toggle bar*/
 .switch {
     position: absolute;
     top:20px;

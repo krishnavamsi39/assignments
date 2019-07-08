@@ -1,0 +1,14 @@
+1) create level and toggle bar
+2)create a 3*3 grid
+3) apply css colors in the background
+4)apply colors based on the mode
+5)apply transitions for the grid(fade in and fade out)
+6)apply color change for each box in the grid
+7)apply transitions for each box
+8)generate random numbers (n unique random numbers where n*n is the size of the box)
+9)highlight the box basing on those random numbers
+10)display the color change for n seconds
+11)now user selects the boxes
+12)if user selects wrong box then display red color and go to level 0
+13)if he selects all colors correctly increment the level
+14)if he completes all 10 levels the display congragulations
