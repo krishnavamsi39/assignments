@@ -8,25 +8,31 @@ class Gamebox extends Component{
         this.wincount=0;
         this.state={level:0,theme:"normal"}
     }
-    incrementlevel=()=>{
+    incrementLevel=()=>{
+        this.wincount=0
         this.setState(
             {level:this.state.level+1}
         )
     }
+    completedGame=()=>{
+        alert("Congragulations")
+    }
     Won=()=>{
+        console.log(this.wincount)
         this.wincount+=1
         if(this.wincount===this.state.level+3){
            this.wincount=0
            if(this.state.level<3){
-        setTimeout(this.incrementlevel,1000)
-        }   
+            setTimeout(this.incrementLevel,1000)
+            }   
         else{
-        alert("Congragulations")
-        this.decrementLevel()
+            setTimeout(this.completedGame,1000)
+            this.decrementLevel()
             }
          }
     }
     decrementLevel=()=>{
+        this.wincount=0
         this.setState(
             {level:0}
         )
@@ -69,14 +75,14 @@ class Gamebox extends Component{
           return column
          }
     Creategrid=(n,randomarr)=>{
-         var gridarr=[]
+         var gridarray=[]
             var i
-            var count=0
+            var startindex=0
             for(i=0;i<n;i++){
-                gridarr.push(<div >{this.Createcols(count,n,randomarr)}</div>)   
-                count+=1
+                gridarray.push(<div >{this.Createcols(startindex,n,randomarr)}</div>)   
+                startindex+=1
                 }
-            return gridarr
+            return gridarray
         }
     render(){
         return(

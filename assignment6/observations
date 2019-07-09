@@ -1,0 +1,5 @@
+->naming should be more clear(* variable names)
+->did not consider theme (whole page rerendering by changing theme)
+->(grid size increasing if level is increasing )
+->
+

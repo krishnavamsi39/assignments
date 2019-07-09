@@ -3,44 +3,31 @@
     background-color:rgba(128,112,250,0.45);
     border:solid 1px;
     color:white;
-    
     height:50px;
     width: 50px;
     transition:1s;
-   
 }
 .clicked{
     background-color:green;
     border:solid 1px;
     color:white;
-   
     height:50px;
     width: 50px;
     transition:1s;
-    
-
 }
 .wclicked{
     background-color:red;
     border:solid 1px;
     color:white;
-    
     height:50px;
     width: 50px;
     transition:1s;
-   
-
 }
 .highlight{
     background-color:black;
     border:solid 1px;
     color:white;
-   
     height:50px;
     width: 50px;
-    
-    
-      
-
 }
 
