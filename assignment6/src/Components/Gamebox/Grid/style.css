@@ -6,7 +6,8 @@
     
     height:50px;
     width: 50px;
-    transition:1s
+    transition:1s;
+   
 }
 .clicked{
     background-color:green;
@@ -15,7 +16,8 @@
    
     height:50px;
     width: 50px;
-    transition:1s
+    transition:1s;
+    
 
 }
 .wclicked{
@@ -25,7 +27,8 @@
     
     height:50px;
     width: 50px;
-    transition:1s
+    transition:1s;
+   
 
 }
 .highlight{
@@ -35,7 +38,9 @@
    
     height:50px;
     width: 50px;
-    transition:1s
+    
+    
+      
 
 }
 

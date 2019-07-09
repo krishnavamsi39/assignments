@@ -6,17 +6,6 @@
 align-items: center;
 align-content: center;
 left: 40%;
-
-}
-.highlight{
-  background-color:black;
-  border:solid 1px;
-  color:white;
-  
-  height:50px;
-  width: 50px;
-  transition:1s
-
 }
 
 .level{

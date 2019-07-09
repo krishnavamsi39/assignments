@@ -8,19 +8,31 @@ class Gamebox extends Component{
         this.wincount=0;
         this.state={level:0,theme:"normal"}
     }
+    incrementlevel=()=>{
+        this.setState(
+            {level:this.state.level+1}
+        )
+    }
     Won=()=>{
         this.wincount+=1
         if(this.wincount===this.state.level+3){
            this.wincount=0
-        this.setState(
-            {level:this.state.level+1}
-            )
+           if(this.state.level<3){
+        setTimeout(this.incrementlevel,1000)
         }   
+        else{
+        alert("Congragulations")
+        this.decrementLevel()
+            }
+         }
     }
-    Lost=()=>{
+    decrementLevel=()=>{
         this.setState(
             {level:0}
-            )     
+        )
+    }
+    Lost=()=>{
+        setTimeout(this.decrementLevel,1000)     
     }
     generateRandom=(n)=>{
        var ranarr=[]
@@ -44,15 +56,13 @@ class Gamebox extends Component{
     Createcols=(i,n,randomarr)=>{
          var j
         var column=[]
-        
          for(j=0;j<n;j++){
-            console.log(randomarr,i)
             if(randomarr.indexOf(i)==-1){
-            column.push(<Grid value={i} className={"block"} random={randomarr} level={this.state.level}  lost={this.Lost}/>)
+            column.push(<Grid value={i} className={"block"} random={randomarr} n={this.state.level+3}  los={this.Lost}/>)
             i+=n
             }
             else{
-                column.push(<Grid value={i}  className={"highlight"} random={randomarr}  level={this.state.level} won={this.Won} />)
+                column.push(<Grid value={i}  className={"highlight"} random={randomarr}  n={this.state.level+3} won={this.Won} />)
                 i+=n  
             }
           }
@@ -80,7 +90,6 @@ class Gamebox extends Component{
                  <span class="slider round"></span>
                     </label>
             <br />
-            
             <div class="grid">
               {this.Creategrid(this.state.level+3,this.generateRandom(this.state.level+3))}
                 </div>  
