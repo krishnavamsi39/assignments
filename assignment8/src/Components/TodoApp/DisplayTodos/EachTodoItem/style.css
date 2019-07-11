@@ -12,10 +12,12 @@
   height: 50px;
 }
 .message {
+  position: relative;
+  top: 15px;
   text-align: center;
 }
 .image {
   position: relative;
-  left: 550px;
+  left: 150px;
   top: 15px;
 }

@@ -16,7 +16,36 @@ class TodoApp extends Component {
       todoList: todos
     });
   };
-  toggleCheckbox = () => {};
+  toggleCheckbox = id => {
+    var i;
+    const todos = this.state.todoList;
+    for (i = 0; i < todos.length; i++) {
+      if (todos[i].id == id) {
+        var obj = todos[i];
+        break;
+      }
+    }
+    obj.todoCompleted = !obj.todoCompleted;
+    todos[i] = obj;
+    this.setState({
+      todoList: todos
+    });
+  };
+  deleteRow = id => {
+    var i;
+    const todos = this.state.todoList;
+    for (i = 0; i < todos.length; i++) {
+      if (todos[i].id == id) {
+        var obj = todos[i];
+        break;
+      }
+    }
+
+    todos.splice(i, 1);
+    this.setState({
+      todoList: todos
+    });
+  };
   render() {
     return (
       <>
@@ -24,6 +53,7 @@ class TodoApp extends Component {
         <DisplayTodos
           toggleCheckbox={this.toggleCheckbox}
           todoList={this.state.todoList}
+          deleteRow={this.deleteRow}
         />
       </>
     );

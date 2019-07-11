@@ -7,7 +7,13 @@ class DisplayTodos extends Component {
   displayEachTodo = () => {
     const rows = [];
     this.props.todoList.map(todo => {
-      rows.push(<EachTodoItem todo={todo} />);
+      rows.push(
+        <EachTodoItem
+          deleteRow={this.props.deleteRow}
+          tCheckbox={this.props.toggleCheckbox}
+          todo={todo}
+        />
+      );
     });
     return rows;
   };
