@@ -1,0 +1,15 @@
+TodoApp (State variable:(todoList)list of objects(id,todoCompleted,todoText))
+
+    AddTodo (state variable:todotext)
+
+    DisplayTodos(state varibale-(all,completed,active))
+        EachTodoItem
+            checkbox 
+            EditableText(State variable:editable )
+                
+            ->cross icon(for deleting)(prompt for conformation)
+
+        TodoActions
+            ->item count
+             Actions(state varibale-(all,completed,active))
+            ->clearcompleted

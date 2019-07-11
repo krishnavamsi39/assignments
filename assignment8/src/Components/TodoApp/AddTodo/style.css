@@ -1,0 +1,11 @@
+.textbox {
+  width: 600px;
+  height: 50px;
+  background-color: #f2f2f2;
+  color: black;
+  padding: 14px 20px;
+  margin: 10px 0;
+  border: 1px solid black;
+
+  cursor: pointer;
+}
