@@ -7,9 +7,9 @@ class EachTodoItem extends Component {
 
   render() {
     return (
-      <div class="eachdiv">
+      <div className="eachdiv">
         <input type="checkbox" />
-        <p class="message"> {this.props.todoText} </p>
+        <p className="message"> {this.props.todo.todoText} </p>
         <img src="assets/index.png" height="20px" width="20px" class="image" />
       </div>
     );

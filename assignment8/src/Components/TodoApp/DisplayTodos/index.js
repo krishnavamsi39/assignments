@@ -6,11 +6,8 @@ class DisplayTodos extends Component {
   }
   displayEachTodo = () => {
     const rows = [];
-    this.props.todoList.forEach(todo => {
-      console.log(todo);
-      rows.push(
-        <EachTodoItem checked={todo.todoCompleted} todoText={todo.todoText} />
-      );
+    this.props.todoList.map(todo => {
+      rows.push(<EachTodoItem todo={todo} />);
     });
     return rows;
   };

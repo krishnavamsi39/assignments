@@ -5,7 +5,6 @@ class TodoApp extends Component {
   constructor(props) {
     super(props);
     this.random = 0;
-    this.list = [];
     this.state = { todoList: [] };
   }
   updateTodoList = message => {
@@ -16,13 +15,16 @@ class TodoApp extends Component {
     this.setState({
       todoList: todos
     });
-    console.log(this.state.todoList);
   };
+  toggleCheckbox = () => {};
   render() {
     return (
       <>
         <AddTodo updateTodo={this.updateTodoList} />
-        <DisplayTodos todoList={this.state.todoList} />
+        <DisplayTodos
+          toggleCheckbox={this.toggleCheckbox}
+          todoList={this.state.todoList}
+        />
       </>
     );
   }

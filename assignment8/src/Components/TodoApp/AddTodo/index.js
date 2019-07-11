@@ -15,7 +15,7 @@ class AddTodo extends Component {
     return (
       <>
         <input
-          class="textbox"
+          className="textbox"
           type="text"
           placeHolder="What needs to be done "
           onKeyDown={this.handleTodoText}
