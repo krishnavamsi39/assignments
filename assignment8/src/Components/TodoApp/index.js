@@ -40,7 +40,6 @@ class TodoApp extends Component {
         break;
       }
     }
-
     todos.splice(i, 1);
     this.setState({
       todoList: todos

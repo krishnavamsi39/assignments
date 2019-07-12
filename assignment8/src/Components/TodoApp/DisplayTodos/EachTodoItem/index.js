@@ -21,7 +21,11 @@ class EachTodoItem extends Component {
     return (
       <div className="eachdiv">
         <div className="checkandmessage">
-          <input type="checkbox" onClick={this.handleToggle} />
+          <input
+            type="checkbox"
+            checked={this.props.todo.todoCompleted}
+            onClick={this.handleToggle}
+          />
           {this.handleMessage()}
         </div>
         <div className="imagediv">
