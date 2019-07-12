@@ -14,20 +14,25 @@ class EachTodoItem extends Component {
     else return <span className="message"> {this.props.todo.todoText} </span>;
   };
   handleDelete = () => {
-    this.props.deleteRow(this.props.todo.id);
+    if (window.confirm("Do you want to delete?"))
+      this.props.deleteRow(this.props.todo.id);
   };
   render() {
     return (
       <div className="eachdiv">
-        <input type="checkbox" class="check" onClick={this.handleToggle} />
-        {this.handleMessage()}
-        <img
-          src="assets/index.png"
-          height="20px"
-          width="20px"
-          className="image"
-          onClick={this.handleDelete}
-        />
+        <div className="checkandmessage">
+          <input type="checkbox" onClick={this.handleToggle} />
+          {this.handleMessage()}
+        </div>
+        <div className="imagediv">
+          <img
+            src="assets/index.png"
+            height="20px"
+            width="20px"
+            className="image"
+            onClick={this.handleDelete}
+          />
+        </div>
       </div>
     );
   }
