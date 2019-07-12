@@ -9,14 +9,7 @@ class DisplayTodos extends Component {
   changeAction = action => {
     this.setState({ actions: action });
   };
-  deleteCompleted = () => {
-    var copy = this.props.todoList;
-    for (var i = 0; i < copy.length; i++) {
-      if (copy[i].todoCompleted === true) {
-        this.props.deleteRow(copy[i].id);
-      }
-    }
-  };
+
   displayEachTodo = () => {
     const rows = [];
     this.props.todoList.map(todo => {
@@ -25,6 +18,7 @@ class DisplayTodos extends Component {
         else
           rows.push(
             <EachTodoItem
+              updateTodo={this.props.updateTodo}
               deleteRow={this.props.deleteRow}
               tCheckbox={this.props.toggleCheckbox}
               todo={todo}
@@ -35,6 +29,7 @@ class DisplayTodos extends Component {
         else
           rows.push(
             <EachTodoItem
+              updateTodo={this.props.updateTodo}
               deleteRow={this.props.deleteRow}
               tCheckbox={this.props.toggleCheckbox}
               todo={todo}
@@ -43,6 +38,7 @@ class DisplayTodos extends Component {
       } else {
         rows.push(
           <EachTodoItem
+            updateTodo={this.props.updateTodo}
             deleteRow={this.props.deleteRow}
             tCheckbox={this.props.toggleCheckbox}
             todo={todo}
@@ -52,7 +48,8 @@ class DisplayTodos extends Component {
     });
     rows.push(
       <TodoActions
-        deleteCompleted={this.deleteCompleted}
+        todoList={this.props.todoList}
+        clearCheck={this.props.clearCheck}
         changeAction={this.changeAction}
       />
     );

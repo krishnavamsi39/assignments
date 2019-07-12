@@ -7,6 +7,22 @@ class TodoApp extends Component {
     this.random = 0;
     this.state = { todoList: [] };
   }
+  updateEachTodo = (message, id) => {
+    var i;
+    console.log(message);
+    const todos = this.state.todoList;
+    for (i = 0; i < todos.length; i++) {
+      if (todos[i].id == id) {
+        var obj = todos[i];
+        break;
+      }
+    }
+
+    obj.todoText = message;
+    this.setState({
+      todoList: todos
+    });
+  };
   updateTodoList = message => {
     var obj = { todoCompleted: false, todoText: message, id: this.random + 1 };
     this.random = this.random + 1;
@@ -31,6 +47,18 @@ class TodoApp extends Component {
       todoList: todos
     });
   };
+  clearCheck = () => {
+    const todos = this.state.todoList;
+    const newtodos = [];
+    for (var i = 0; i < todos.length; i++) {
+      if (todos[i].todoCompleted == false) {
+        newtodos.push(todos[i]);
+      }
+    }
+    this.setState({
+      todoList: newtodos
+    });
+  };
   deleteRow = id => {
     var i;
     const todos = this.state.todoList;
@@ -50,6 +78,8 @@ class TodoApp extends Component {
       <>
         <AddTodo updateTodo={this.updateTodoList} />
         <DisplayTodos
+          updateTodo={this.updateEachTodo}
+          clearCheck={this.clearCheck}
           toggleCheckbox={this.toggleCheckbox}
           todoList={this.state.todoList}
           deleteRow={this.deleteRow}

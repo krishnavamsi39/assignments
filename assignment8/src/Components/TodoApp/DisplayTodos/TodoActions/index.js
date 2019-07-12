@@ -7,12 +7,40 @@ class TodoActions extends Component {
   handleClick = e => {
     this.props.changeAction(e.target.value);
   };
-  handleClear = () => {
-    this.props.deleteCompleted();
+  displayClear = () => {
+    var c = 0;
+    var list = this.props.todoList;
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].todoCompleted === true) {
+        c += 1;
+      }
+    }
+    if (c > 0)
+      return (
+        <div class="completed">
+          <input
+            type="button"
+            class="button"
+            value="Clear completed"
+            onClick={this.props.clearCheck}
+          />
+        </div>
+      );
+  };
+  itemCount = () => {
+    var c = 0;
+    var list = this.props.todoList;
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].todoCompleted === false) {
+        c += 1;
+      }
+    }
+    return <span>{c} Items left</span>;
   };
   render() {
     return (
       <div className="footer">
+        {this.itemCount()}
         <div>
           <input
             type="button"
@@ -33,14 +61,7 @@ class TodoActions extends Component {
             onClick={this.handleClick}
           />
         </div>
-        <div class="completed">
-          <input
-            type="button"
-            class="button"
-            value="Clear completed"
-            onClick={this.handleClear}
-          />
-        </div>
+        {this.displayClear()}
       </div>
     );
   }
