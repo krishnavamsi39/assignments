@@ -3,13 +3,22 @@
   display: flex;
   justify-content: space-between;
   width: 600px;
-  background-color: #f2f2f2;
-  color: black;
-  padding: 14px 20px;
-  margin: 10px 0;
-  border: 1px solid black;
   height: 50px;
+  background-color: white;
+  color: #4d4d4d;
+  font-size: 24px;
+  padding: 14px 20px;
+  margin: 0.5px;
+  border: 2px #e1e1e1;
 }
 .button {
-  background-color: #e7e7e7;
+  background-color: white;
+  color: #777777;
+  font-size: 14px;
+  border: 1px;
+  border-color: rgba(175, 47, 47, 0.2);
+}
+.span {
+  columns: #777777;
+  font-size: 14px;
 }

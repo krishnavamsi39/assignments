@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "./style.css";
 class EditableText extends Component {
   constructor(props) {
     super(props);
@@ -22,6 +22,7 @@ class EditableText extends Component {
       return (
         <input
           type="text"
+          className="textBox"
           onChange={this.handleChange}
           value={this.state.editableTodo}
           onKeyDown={this.handleTodoText}
@@ -35,7 +36,9 @@ class EditableText extends Component {
           </span>
         );
       else
-        return <strike className="message">{this.props.todo.todoText} </strike>;
+        return (
+          <strike className="strikemessage">{this.props.todo.todoText} </strike>
+        );
     }
   };
   render() {

@@ -46,13 +46,14 @@ class DisplayTodos extends Component {
         );
       }
     });
-    rows.push(
-      <TodoActions
-        todoList={this.props.todoList}
-        clearCheck={this.props.clearCheck}
-        changeAction={this.changeAction}
-      />
-    );
+    if (this.props.todoList.length > 0)
+      rows.push(
+        <TodoActions
+          todoList={this.props.todoList}
+          clearCheck={this.props.clearCheck}
+          changeAction={this.changeAction}
+        />
+      );
     return rows;
   };
   render() {

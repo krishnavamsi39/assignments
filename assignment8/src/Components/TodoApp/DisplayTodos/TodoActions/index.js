@@ -35,7 +35,7 @@ class TodoActions extends Component {
         c += 1;
       }
     }
-    return <span>{c} Items left</span>;
+    return <span class="span">{c} Items left</span>;
   };
   render() {
     return (
