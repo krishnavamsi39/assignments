@@ -6,12 +6,12 @@ class EachTodoItem extends Component {
     super(props);
   }
   handleToggle = () => {
-    this.props.toggleCheckbox(this.props.todo.id);
+    this.props.onToggleTaskCompletetion(this.props.todo.id);
   };
 
   handleDelete = () => {
     if (window.confirm("Do you want to delete?"))
-      this.props.deleteRow(this.props.todo.id);
+      this.props.deleteTodo(this.props.todo.id);
   };
   render() {
     return (
@@ -37,7 +37,6 @@ class EachTodoItem extends Component {
             src="assets/index.png"
             height="20px"
             width="20px"
-            className="image"
             onClick={this.handleDelete}
           />
         </div>

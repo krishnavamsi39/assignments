@@ -26,7 +26,7 @@
   border: 1px;
   cursor: pointer;
 }
-.clickedbutton {
+.clicked-button {
   background-color: white;
   color: #777777;
   font-size: 14px;
@@ -35,7 +35,7 @@
   border-radius: 10%;
 }
 
-.span {
+.item-count {
   position: relative;
   top: 8px;
   columns: #777777;

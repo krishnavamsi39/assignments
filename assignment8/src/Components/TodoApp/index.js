@@ -8,22 +8,18 @@ class TodoApp extends Component {
     this.state = { todoList: [] };
   }
   updateEachTodo = (message, id) => {
-    var i;
-    console.log(message);
+    let obj;
     const todos = this.state.todoList;
-    for (i = 0; i < todos.length; i++) {
-      if (todos[i].id == id) {
-        var obj = todos[i];
-        break;
-      }
-    }
-    obj.todoText = message;
+    todos.some(todo => {
+      if (todo.id === id) todo.todoText = message;
+    });
+
     this.setState({
       todoList: todos
     });
   };
-  updateTodoList = message => {
-    var obj = { todoCompleted: false, todoText: message, id: this.random + 1 };
+  onAddTodo = message => {
+    let obj = { todoCompleted: false, todoText: message, id: this.random + 1 };
     this.random = this.random + 1;
     const todos = this.state.todoList;
     todos.push(obj);
@@ -32,56 +28,38 @@ class TodoApp extends Component {
     });
   };
   toggleCheckbox = id => {
-    var i;
     const todos = this.state.todoList;
-    for (i = 0; i < todos.length; i++) {
-      if (todos[i].id == id) {
-        var obj = todos[i];
-        break;
-      }
-    }
-    obj.todoCompleted = !obj.todoCompleted;
-    todos[i] = obj;
+
+    todos.some(todo => {
+      if (todo.id === id) todo.todoCompleted = !todo.todoCompleted;
+    });
     this.setState({
       todoList: todos
     });
   };
   clearCompleted = () => {
     const todos = this.state.todoList;
-    const newtodos = [];
-    for (var i = 0; i < todos.length; i++) {
-      if (todos[i].todoCompleted == false) {
-        newtodos.push(todos[i]);
-      }
-    }
     this.setState({
-      todoList: newtodos
+      todoList: todos.filter(obj => obj.todoCompleted === false)
     });
   };
-  deleteRow = id => {
-    var i;
+  deleteTodo = id => {
     const todos = this.state.todoList;
-    for (i = 0; i < todos.length; i++) {
-      if (todos[i].id == id) {
-        var obj = todos[i];
-        break;
-      }
-    }
-    todos.splice(i, 1);
     this.setState({
-      todoList: todos
+      todoList: todos.filter(obj => obj.id != id)
     });
   };
   render() {
     return (
       <div class="todo">
-        <AddTodo updateTodo={this.updateTodoList} />
+        <AddTodo onPressEnterKey={this.onAddTodo} />
+
         <DisplayTodos
           updateTodo={this.updateEachTodo}
           clearCompleted={this.clearCompleted}
-          toggleCheckbox={this.toggleCheckbox}
+          onToggleTaskCompletetion={this.toggleCheckbox}
           todoList={this.state.todoList}
-          deleteRow={this.deleteRow}
+          deleteTodo={this.deleteTodo}
         />
       </div>
     );

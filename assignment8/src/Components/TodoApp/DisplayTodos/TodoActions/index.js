@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./style.css";
+import FilterTypes from "./../../../../constants/TodoConstants";
 class TodoActions extends Component {
   constructor(props) {
     super(props);
@@ -8,91 +9,49 @@ class TodoActions extends Component {
     this.props.changeAction(e.target.value);
   };
   displayButtons = () => {
-    if (this.props.selectedAction === "All") {
-      return (
-        <div>
-          <input
-            type="button"
-            class="clickedbutton"
-            value="All"
-            onClick={this.handleClick}
-          />
-          <input
-            type="button"
-            class="button"
-            value="Active"
-            onClick={this.handleClick}
-          />
-          <input
-            type="button"
-            class="button"
-            value="Completed"
-            onClick={this.handleClick}
-          />
-        </div>
-      );
-    } else if (this.props.selectedAction === "Active") {
-      return (
-        <div>
-          <input
-            type="button"
-            class="button"
-            value="All"
-            onClick={this.handleClick}
-          />
-          <input
-            type="button"
-            class="clickedbutton"
-            value="Active"
-            onClick={this.handleClick}
-          />
-          <input
-            type="button"
-            class="button"
-            value="Completed"
-            onClick={this.handleClick}
-          />
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <input
-            type="button"
-            class="button"
-            value="All"
-            onClick={this.handleClick}
-          />
-          <input
-            type="button"
-            class="button"
-            value="Active"
-            onClick={this.handleClick}
-          />
-          <input
-            type="button"
-            class="clickedbutton"
-            value="Completed"
-            onClick={this.handleClick}
-          />
-        </div>
-      );
-    }
+    var allclass = "button";
+    var activeclass = "button";
+    var completedclass = "button";
+    if (this.props.selectedAction === FilterTypes.all)
+      var allclass = "clicked-button";
+    else if (this.props.selectedAction === FilterTypes.active)
+      var activeclass = "clicked-button";
+    else var completedclass = "clicked-button";
+    return (
+      <div>
+        <input
+          type="button"
+          className={allclass}
+          value="All"
+          onClick={this.handleClick}
+        />
+        <input
+          type="button"
+          className={activeclass}
+          value="Active"
+          onClick={this.handleClick}
+        />
+        <input
+          type="button"
+          className={completedclass}
+          value="Completed"
+          onClick={this.handleClick}
+        />
+      </div>
+    );
   };
-  displayClear = () => {
-    var c = 0;
-    var list = this.props.todoList;
-    for (var i = 0; i < list.length; i++) {
-      if (list[i].todoCompleted === true) {
-        c += 1;
-      }
-    }
+  displayClearButton = () => {
+    let c = 0;
+    const todos = this.props.todoList;
+    todos.map(todo => {
+      if (todo.todoCompleted) c += 1;
+    });
     if (c > 0)
       return (
         <div class="completed">
           <input
             type="button"
-            class="button"
+            className="button"
             value="Clear completed"
             onClick={this.props.clearCompleted}
           />
@@ -100,21 +59,19 @@ class TodoActions extends Component {
       );
   };
   itemCount = () => {
-    var c = 0;
-    var list = this.props.todoList;
-    for (var i = 0; i < list.length; i++) {
-      if (list[i].todoCompleted === false) {
-        c += 1;
-      }
-    }
-    return <span class="span">{c} Items left</span>;
+    let c = 0;
+    const todos = this.props.todoList;
+    todos.map(todo => {
+      if (!todo.todoCompleted) c += 1;
+    });
+    return <span className="item-count">{c} Items left</span>;
   };
   render() {
     return (
       <div className="footer">
         {this.itemCount()}
         {this.displayButtons()}
-        {this.displayClear()}
+        {this.displayClearButton()}
       </div>
     );
   }

@@ -1,24 +1,28 @@
 import React, { Component } from "react";
 import "./style.css";
+
 class EditableText extends Component {
   constructor(props) {
     super(props);
-    this.state = { editable: false, editableTodo: "" };
+    this.state = { isEditable: false, editableTodo: "" };
   }
   handleClick = () => {
-    this.setState({ editable: true, editableTodo: this.props.todo.todoText });
+    this.setState({ isEditable: true, editableTodo: this.props.todo.todoText });
   };
   handleTodoText = e => {
     if (e.keyCode === 13 && e.target.value !== "") {
-      this.setState({ editable: false, editableTodo: this.state.editableTodo });
+      this.setState({
+        isEditable: false,
+        editableTodo: this.state.editableTodo
+      });
       this.props.updateTodo(this.state.editableTodo, this.props.todo.id);
     }
   };
   handleChange = e => {
     this.setState({ editableTodo: e.target.value });
   };
-  handleMessage = () => {
-    if (this.state.editable)
+  renderMessage = () => {
+    if (this.state.isEditable)
       return (
         <input
           type="text"
@@ -28,7 +32,7 @@ class EditableText extends Component {
           onKeyDown={this.handleTodoText}
         />
       );
-    if (!this.state.editable) {
+    if (!this.state.isEditable) {
       if (!this.props.todo.todoCompleted)
         return (
           <span className="message" onDoubleClick={this.handleClick}>
@@ -42,7 +46,7 @@ class EditableText extends Component {
     }
   };
   render() {
-    return this.handleMessage();
+    return this.renderMessage();
   }
 }
 export default EditableText;
