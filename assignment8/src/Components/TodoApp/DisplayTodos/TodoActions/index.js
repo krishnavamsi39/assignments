@@ -13,7 +13,7 @@ class TodoActions extends Component {
         <div>
           <input
             type="button"
-            class="buttonc"
+            class="clickedbutton"
             value="All"
             onClick={this.handleClick}
           />
@@ -42,7 +42,7 @@ class TodoActions extends Component {
           />
           <input
             type="button"
-            class="buttonc"
+            class="clickedbutton"
             value="Active"
             onClick={this.handleClick}
           />
@@ -71,7 +71,7 @@ class TodoActions extends Component {
           />
           <input
             type="button"
-            class="buttonc"
+            class="clickedbutton"
             value="Completed"
             onClick={this.handleClick}
           />
@@ -94,7 +94,7 @@ class TodoActions extends Component {
             type="button"
             class="button"
             value="Clear completed"
-            onClick={this.props.clearCheck}
+            onClick={this.props.clearCompleted}
           />
         </div>
       );

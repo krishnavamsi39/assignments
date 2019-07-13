@@ -20,7 +20,7 @@ class DisplayTodos extends Component {
             <EachTodoItem
               updateTodo={this.props.updateTodo}
               deleteRow={this.props.deleteRow}
-              tCheckbox={this.props.toggleCheckbox}
+              toggleCheckbox={this.props.toggleCheckbox}
               todo={todo}
             />
           );
@@ -31,7 +31,7 @@ class DisplayTodos extends Component {
             <EachTodoItem
               updateTodo={this.props.updateTodo}
               deleteRow={this.props.deleteRow}
-              tCheckbox={this.props.toggleCheckbox}
+              toggleCheckbox={this.props.toggleCheckbox}
               todo={todo}
             />
           );
@@ -40,7 +40,7 @@ class DisplayTodos extends Component {
           <EachTodoItem
             updateTodo={this.props.updateTodo}
             deleteRow={this.props.deleteRow}
-            tCheckbox={this.props.toggleCheckbox}
+            toggleCheckbox={this.props.toggleCheckbox}
             todo={todo}
           />
         );
@@ -51,7 +51,7 @@ class DisplayTodos extends Component {
         <TodoActions
           selectedAction={this.state.actions}
           todoList={this.props.todoList}
-          clearCheck={this.props.clearCheck}
+          clearCompleted={this.props.clearCompleted}
           changeAction={this.changeAction}
         />
       );

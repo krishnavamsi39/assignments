@@ -9,7 +9,7 @@ class EditableText extends Component {
     this.setState({ editable: true, editableTodo: this.props.todo.todoText });
   };
   handleTodoText = e => {
-    if (e.keyCode === 13) {
+    if (e.keyCode === 13 && e.target.value !== "") {
       this.setState({ editable: false, editableTodo: this.state.editableTodo });
       this.props.updateTodo(this.state.editableTodo, this.props.todo.id);
     }

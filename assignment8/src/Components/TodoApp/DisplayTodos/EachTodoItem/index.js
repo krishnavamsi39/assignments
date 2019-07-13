@@ -6,7 +6,7 @@ class EachTodoItem extends Component {
     super(props);
   }
   handleToggle = () => {
-    this.props.tCheckbox(this.props.todo.id);
+    this.props.toggleCheckbox(this.props.todo.id);
   };
 
   handleDelete = () => {

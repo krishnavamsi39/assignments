@@ -17,7 +17,6 @@ class TodoApp extends Component {
         break;
       }
     }
-
     obj.todoText = message;
     this.setState({
       todoList: todos
@@ -47,7 +46,7 @@ class TodoApp extends Component {
       todoList: todos
     });
   };
-  clearCheck = () => {
+  clearCompleted = () => {
     const todos = this.state.todoList;
     const newtodos = [];
     for (var i = 0; i < todos.length; i++) {
@@ -75,16 +74,16 @@ class TodoApp extends Component {
   };
   render() {
     return (
-      <>
+      <div class="todo">
         <AddTodo updateTodo={this.updateTodoList} />
         <DisplayTodos
           updateTodo={this.updateEachTodo}
-          clearCheck={this.clearCheck}
+          clearCompleted={this.clearCompleted}
           toggleCheckbox={this.toggleCheckbox}
           todoList={this.state.todoList}
           deleteRow={this.deleteRow}
         />
-      </>
+      </div>
     );
   }
 }
