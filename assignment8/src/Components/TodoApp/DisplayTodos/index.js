@@ -49,6 +49,7 @@ class DisplayTodos extends Component {
     if (this.props.todoList.length > 0)
       rows.push(
         <TodoActions
+          selectedAction={this.state.actions}
           todoList={this.props.todoList}
           clearCheck={this.props.clearCheck}
           changeAction={this.changeAction}

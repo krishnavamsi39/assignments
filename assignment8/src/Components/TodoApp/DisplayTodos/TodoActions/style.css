@@ -10,14 +10,30 @@
   padding: 14px 20px;
   margin: 0.5px;
   border: 2px #e1e1e1;
+
+  box-shadow:
+  /* The top layer shadow */ 0 1px 1px rgba(0, 0, 0, 0.15),
+    /* The second layer */ 0 12px 0 -5px white,
+    /* The second layer shadow */ 0 12px 1px -4px rgba(0, 0, 0, 0.15),
+    /* The third layer */ 0 25px 0 -10px white,
+    /* The third layer shadow */ 0 25px 1px -9px rgba(0, 0, 0, 0.15);
+  /* Padding for demo purposes */
 }
 .button {
   background-color: white;
   color: #777777;
   font-size: 14px;
   border: 1px;
-  border-color: rgba(175, 47, 47, 0.2);
+  cursor: pointer;
 }
+.buttonc {
+  background-color: white;
+  color: #777777;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid rgba(175, 47, 47, 0.5);
+}
+
 .span {
   columns: #777777;
   font-size: 14px;

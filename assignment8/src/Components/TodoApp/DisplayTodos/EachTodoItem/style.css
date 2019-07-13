@@ -10,14 +10,19 @@
   padding: 14px 20px;
   margin: 0.5px;
   border: 2px #e1e1e1;
+
   --v: hidden;
 }
 .checkandmessage {
   display: flex;
+  position: relative;
+  top: 13px;
 }
 .imagediv img {
-  top: 15px;
+  position: relative;
+  top: 13px;
   visibility: var(--v);
+  cursor: pointer;
 }
 .eachdiv:hover {
   --v: visible;
@@ -53,12 +58,12 @@
   width: 25px;
   border-radius: 50%;
   border: 1px;
-  border-color: red;
-  background-color: #eee;
+
+  background-color: #f5f5f5;
 }
 
 .container input:checked ~ .checkmark {
-  background-color: white;
+  background-color: #f5f5f5;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */

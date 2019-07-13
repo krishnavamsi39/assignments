@@ -7,6 +7,78 @@ class TodoActions extends Component {
   handleClick = e => {
     this.props.changeAction(e.target.value);
   };
+  displayButtons = () => {
+    if (this.props.selectedAction === "All") {
+      return (
+        <div>
+          <input
+            type="button"
+            class="buttonc"
+            value="All"
+            onClick={this.handleClick}
+          />
+          <input
+            type="button"
+            class="button"
+            value="Active"
+            onClick={this.handleClick}
+          />
+          <input
+            type="button"
+            class="button"
+            value="Completed"
+            onClick={this.handleClick}
+          />
+        </div>
+      );
+    } else if (this.props.selectedAction === "Active") {
+      return (
+        <div>
+          <input
+            type="button"
+            class="button"
+            value="All"
+            onClick={this.handleClick}
+          />
+          <input
+            type="button"
+            class="buttonc"
+            value="Active"
+            onClick={this.handleClick}
+          />
+          <input
+            type="button"
+            class="button"
+            value="Completed"
+            onClick={this.handleClick}
+          />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <input
+            type="button"
+            class="button"
+            value="All"
+            onClick={this.handleClick}
+          />
+          <input
+            type="button"
+            class="button"
+            value="Active"
+            onClick={this.handleClick}
+          />
+          <input
+            type="button"
+            class="buttonc"
+            value="Completed"
+            onClick={this.handleClick}
+          />
+        </div>
+      );
+    }
+  };
   displayClear = () => {
     var c = 0;
     var list = this.props.todoList;
@@ -41,26 +113,7 @@ class TodoActions extends Component {
     return (
       <div className="footer">
         {this.itemCount()}
-        <div>
-          <input
-            type="button"
-            class="button"
-            value="All"
-            onClick={this.handleClick}
-          />
-          <input
-            type="button"
-            class="button"
-            value="Active"
-            onClick={this.handleClick}
-          />
-          <input
-            type="button"
-            class="button"
-            value="Completed"
-            onClick={this.handleClick}
-          />
-        </div>
+        {this.displayButtons()}
         {this.displayClear()}
       </div>
     );
