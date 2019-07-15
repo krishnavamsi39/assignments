@@ -4,7 +4,11 @@ import EditableText from "./EditableText";
 class EachTodoItem extends Component {
   constructor(props) {
     super(props);
+    this.state = { isEditable: false };
   }
+  handleEditable = () => {
+    this.setState({ isEditable: !this.state.isEditable });
+  };
   handleToggle = () => {
     this.props.onToggleTaskCompletetion(this.props.todo.id);
   };
@@ -28,18 +32,25 @@ class EachTodoItem extends Component {
           </label>
 
           <EditableText
+            isEditable={this.state.isEditable}
+            handleEditable={this.handleEditable}
+            onPressEnterKey={this.props.onPressEnterKey}
             updateTodo={this.props.updateTodo}
             todo={this.props.todo}
           />
         </div>
-        <div className="imagediv">
-          <img
-            src="assets/index.png"
-            height="20px"
-            width="20px"
-            onClick={this.handleDelete}
-          />
-        </div>
+        {!this.state.isEditable ? (
+          <div className="imagediv">
+            <img
+              src="assets/index.png"
+              height="20px"
+              width="20px"
+              onClick={this.handleDelete}
+            />
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
     );
   }

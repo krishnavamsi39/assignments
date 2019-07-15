@@ -1,49 +1,34 @@
 import React, { Component } from "react";
 import "./style.css";
+import AddTodo from "../../../AddTodo";
 
 class EditableText extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isEditable: false, editableTodo: "" };
-  }
   handleClick = () => {
-    this.setState({ isEditable: true, editableTodo: this.props.todo.todoText });
+    this.props.handleEditable();
   };
-  handleTodoText = e => {
-    if (e.keyCode === 13 && e.target.value !== "") {
-      this.setState({
-        isEditable: false,
-        editableTodo: this.state.editableTodo
-      });
-      this.props.updateTodo(this.state.editableTodo, this.props.todo.id);
-    }
+  handleEdit = message => {
+    this.props.onPressEnterKey(this.props.todo.id, message);
+    this.props.handleEditable();
   };
-  handleChange = e => {
-    this.setState({ editableTodo: e.target.value });
-  };
+
   renderMessage = () => {
-    if (this.state.isEditable)
+    if (this.props.isEditable) {
       return (
-        <input
-          type="text"
-          className="textBox"
-          onChange={this.handleChange}
-          value={this.state.editableTodo}
-          onKeyDown={this.handleTodoText}
+        <AddTodo
+          onPressEnterKey={this.handleEdit}
+          TextClass="update-text"
+          TodoTextValue={this.props.todo.todoText}
         />
       );
-    if (!this.state.isEditable) {
-      if (!this.props.todo.todoCompleted)
-        return (
-          <span className="message" onDoubleClick={this.handleClick}>
-            {this.props.todo.todoText}{" "}
-          </span>
-        );
-      else
-        return (
-          <strike className="strikemessage">{this.props.todo.todoText} </strike>
-        );
     }
+    return this.props.todo.todoCompleted ? (
+      <strike className="strikemessage">{this.props.todo.todoText} </strike>
+    ) : (
+      <span className="message" onDoubleClick={this.handleClick}>
+        {" "}
+        {this.props.todo.todoText}{" "}
+      </span>
+    );
   };
   render() {
     return this.renderMessage();

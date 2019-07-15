@@ -7,13 +7,11 @@ class TodoApp extends Component {
     this.random = 0;
     this.state = { todoList: [] };
   }
-  updateEachTodo = (message, id) => {
-    let obj;
+  updateEachTodo = (id, message) => {
     const todos = this.state.todoList;
     todos.some(todo => {
       if (todo.id === id) todo.todoText = message;
     });
-
     this.setState({
       todoList: todos
     });
@@ -44,17 +42,21 @@ class TodoApp extends Component {
     });
   };
   deleteTodo = id => {
-    const todos = this.state.todoList;
     this.setState({
-      todoList: todos.filter(obj => obj.id != id)
+      todoList: this.state.todoList.filter(obj => obj.id !== id)
     });
   };
   render() {
     return (
       <div class="todo">
-        <AddTodo onPressEnterKey={this.onAddTodo} />
+        <AddTodo
+          onPressEnterKey={this.onAddTodo}
+          TextClass="enter-text"
+          TodoTextValue=""
+        />
 
         <DisplayTodos
+          onPressEnterKey={this.updateEachTodo}
           updateTodo={this.updateEachTodo}
           clearCompleted={this.clearCompleted}
           onToggleTaskCompletetion={this.toggleCheckbox}

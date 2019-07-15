@@ -1,26 +1,29 @@
 import React, { Component } from "react";
 import "./style.css";
-//TODO:change this component name and reuse it in update
+
 class AddTodo extends Component {
   constructor(props) {
     super(props);
-    this.state = { inputTodo: "" };
+    this.state = { inputTodo: this.props.TodoTextValue };
   }
   handleTodoText = e => {
     if (e.keyCode === 13 && e.target.value !== "") {
-      this.setState({});
-      this.props.onPressEnterKey(e.target.value);
-      e.target.value = "";
+      this.props.onPressEnterKey(this.state.inputTodo);
+      this.setState({ inputTodo: "" });
     }
   };
-
+  handleOnchange = e => {
+    this.setState({ inputTodo: e.target.value });
+  };
   render() {
     return (
       <>
         <input
-          className="textbox"
+          value={this.state.inputTodo}
+          className={this.props.TextClass}
           type="text"
           placeHolder="What needs to be done "
+          onChange={this.handleOnchange}
           onKeyDown={this.handleTodoText}
         />
       </>

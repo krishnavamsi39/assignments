@@ -12,8 +12,8 @@ class DisplayTodos extends Component {
   };
 
   displayEachTodo = () => {
-    var filteredList = [];
-    //TODO:maintain constants for filter types
+    let filteredList = [];
+
     if (this.state.selectedAction === FilterTypes.active) {
       filteredList = this.props.todoList.filter(
         todo => todo.todoCompleted === false
@@ -28,6 +28,7 @@ class DisplayTodos extends Component {
     const rows = filteredList.map(todo => {
       return (
         <EachTodoItem
+          onPressEnterKey={this.props.onPressEnterKey}
           updateTodo={this.props.updateTodo}
           deleteTodo={this.props.deleteTodo}
           onToggleTaskCompletetion={this.props.onToggleTaskCompletetion}

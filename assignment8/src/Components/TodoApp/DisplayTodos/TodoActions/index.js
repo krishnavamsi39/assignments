@@ -2,21 +2,18 @@ import React, { Component } from "react";
 import "./style.css";
 import FilterTypes from "./../../../../constants/TodoConstants";
 class TodoActions extends Component {
-  constructor(props) {
-    super(props);
-  }
   handleClick = e => {
     this.props.changeAction(e.target.value);
   };
   displayButtons = () => {
-    var allclass = "button";
-    var activeclass = "button";
-    var completedclass = "button";
+    let allclass = "action-button";
+    let activeclass = "action-button";
+    let completedclass = "action-button";
     if (this.props.selectedAction === FilterTypes.all)
-      var allclass = "clicked-button";
+      allclass = "clicked-button";
     else if (this.props.selectedAction === FilterTypes.active)
-      var activeclass = "clicked-button";
-    else var completedclass = "clicked-button";
+      activeclass = "clicked-button";
+    else completedclass = "clicked-button";
     return (
       <div>
         <input
@@ -51,7 +48,7 @@ class TodoActions extends Component {
         <div class="completed">
           <input
             type="button"
-            className="button"
+            className="action-button"
             value="Clear completed"
             onClick={this.props.clearCompleted}
           />

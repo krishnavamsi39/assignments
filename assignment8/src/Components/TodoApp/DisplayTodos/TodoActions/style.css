@@ -19,7 +19,7 @@
     /* The third layer shadow */ 0 25px 1px -9px rgba(0, 0, 0, 0.15);
   /* Padding for demo purposes */
 }
-.button {
+.action-button {
   background-color: white;
   color: #777777;
   font-size: 14px;
