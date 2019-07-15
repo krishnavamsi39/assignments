@@ -29,7 +29,6 @@ class DisplayTodos extends Component {
       return (
         <EachTodoItem
           onPressEnterKey={this.props.onPressEnterKey}
-          updateTodo={this.props.updateTodo}
           deleteTodo={this.props.deleteTodo}
           onToggleTaskCompletetion={this.props.onToggleTaskCompletetion}
           todo={todo}

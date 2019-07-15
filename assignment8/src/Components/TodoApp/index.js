@@ -25,7 +25,7 @@ class TodoApp extends Component {
       todoList: todos
     });
   };
-  toggleCheckbox = id => {
+  onToggleTaskCompletetion = id => {
     const todos = this.state.todoList;
 
     todos.some(todo => {
@@ -57,9 +57,8 @@ class TodoApp extends Component {
 
         <DisplayTodos
           onPressEnterKey={this.updateEachTodo}
-          updateTodo={this.updateEachTodo}
           clearCompleted={this.clearCompleted}
-          onToggleTaskCompletetion={this.toggleCheckbox}
+          onToggleTaskCompletetion={this.onToggleTaskCompletetion}
           todoList={this.state.todoList}
           deleteTodo={this.deleteTodo}
         />
